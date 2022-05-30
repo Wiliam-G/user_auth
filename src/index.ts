@@ -1,12 +1,13 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
+import statusRoute from './routes/status.route';
+import usersRoute from './routes/users.route';
 
 const app = express();
-// const port = 3000; 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(usersRoute);
+app.use(statusRoute);
 
-
-app.get('/status', (req: Request, res: Response, next: NextFunction) => {
-    res.status(200).send ({teste: "ok sucesso mano"});
-});
 
 app.listen(3000, () => {
     console.log('rodando na porta 3000');
