@@ -11,4 +11,6 @@ app.use(statusRoute);
 
 app.listen(3000, () => {
     console.log('rodando na porta 3000');
-})
+});
+
+export default app;
